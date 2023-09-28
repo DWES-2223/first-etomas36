@@ -15,7 +15,7 @@ if (isset($edat)){
         case $edat <= 17 :
             $categoria = "adolescent";
             break;
-        case $edat <= 66 :
+        case $edat <= 67 :
             $categoria = "adult";
             break;
         case $edat > 67 :
