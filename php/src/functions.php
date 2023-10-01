@@ -68,7 +68,7 @@ function peseta2euros(int $num,  $cotizacio = 0.0060 ): int{
     return (int)($num / $cotizacio );
 }
 
-function euro2pesetes(int $num, $cotizacio = 166.3860 ): int{
+function euro2pesetes(int $num, $cotizacio = 166 ): int{
     return (int)($num * $cotizacio);
 }
 
