@@ -72,3 +72,53 @@ function euro2pesetes(int $num, $cotizacio = 166 ): int{
     return (int)($num * $cotizacio);
 }
 
+function vell(array $records): mixed {
+    $vell = "1.10.2023";
+    $recordVell = new DateTime($vell);
+
+    foreach ($records as $record ) {
+        $date = new DateTime($record["data"]);
+        if ($recordVell > $date)
+            $recordVell = $date;
+    }
+    return $recordVell->format('d.m.Y');
+}
+
+function fecha_inglesa(string $text ):string {
+    $enDate = new DateTime($text);
+    return $enDate->format('Y/m/d');
+}
+
+//function laureado(array $records):mixed {}
+
+function array_column_ext($array, $columnkey, $indexkey = null) {
+    $result = array();
+    foreach ($array as $subarray => $value) {
+        if (array_key_exists($columnkey,$value)) { $val = $array[$subarray][$columnkey]; }
+        else if ($columnkey === null) { $val = $value; }
+        else { continue; }
+
+        if ($indexkey === null) { $result[] = $val; }
+        elseif ($indexkey == -1 || array_key_exists($indexkey,$value)) {
+            $result[($indexkey == -1)?$subarray:$array[$subarray][$indexkey]] = $val;
+        }
+    }
+    return $result;
+}
+function jove(array $dates, array $natalicis):mixed{
+
+    $mesJove = 41;
+
+    foreach ($natalicis as $valueAny => $natalici) {
+        foreach ($dates as $valueDate => $date) {
+            if ($valueAny === $valueDate){
+
+                $edatAtleta = substr($date,-4) - $natalici;
+                if ($mesJove > $edatAtleta ){
+                    $mesJove = $edatAtleta;
+                }
+            }
+        }
+    }
+    return $mesJove;
+}
