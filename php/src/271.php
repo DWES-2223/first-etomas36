@@ -12,7 +12,6 @@ if (isset($prova,$marca,$atleta,$natalici,$club,$data,$lloc)){
         $records[$prova]["club"] = $club;
         $records[$prova]["data"] = $data;
         $records[$prova]["lloc"] = $lloc;
-        var_dump($records[$prova]);
         include ("270a.php");
     }else {
         echo "La prova $prova no existeix en la llista de records oficials de la FEA";

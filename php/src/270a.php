@@ -9,10 +9,7 @@
         <th>LLoc</th>
     </tr>
     <?php
-    include ("atletes.php");
-
-    sort($records);
-    foreach ( $records as $prova => $record) {?>
+    foreach ($records as $prova => $record) {?>
         <tr> <!-- CONTINGUT DE LA TALBA -->
             <td><?php echo $prova ?></td>
             <?php foreach ($record as $item) {?>

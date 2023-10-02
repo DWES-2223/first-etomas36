@@ -89,7 +89,28 @@ function fecha_inglesa(string $text ):string {
     return $enDate->format('Y/m/d');
 }
 
-//function laureado(array $records):mixed {}
+function laureado(array $records):mixed {
+
+    $arrayVegades=[];
+    $mesFamos = null;
+
+    foreach ($records as $record) {
+        if (array_key_exists($record,$arrayVegades)){
+            $arrayVegades[$record]++;
+        }else{
+            $arrayVegades[$record] = 1;
+        }
+    }
+    $quantitatVegades = 0;
+    foreach ($arrayVegades as $mesVoltes => $vegades) {
+        if ($quantitatVegades < $vegades){
+            $quantitatVegades = $vegades;
+            $mesFamos = $mesVoltes;
+        }
+    }
+
+    return $mesFamos;
+}
 
 function array_column_ext($array, $columnkey, $indexkey = null) {
     $result = array();
@@ -112,8 +133,7 @@ function jove(array $dates, array $natalicis):mixed{
     foreach ($natalicis as $valueAny => $natalici) {
         foreach ($dates as $valueDate => $date) {
             if ($valueAny === $valueDate){
-
-                $edatAtleta = substr($date,-4) - $natalici;
+                $edatAtleta = any($date) - $natalici;
                 if ($mesJove > $edatAtleta ){
                     $mesJove = $edatAtleta;
                 }
@@ -121,4 +141,10 @@ function jove(array $dates, array $natalicis):mixed{
         }
     }
     return $mesJove;
+}
+
+function any($date)
+{
+    $enDate = new DateTime($date);
+    return $enDate->format('Y');
 }

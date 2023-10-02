@@ -2,7 +2,6 @@
 
 class ActivitatPHP
 {
-
     public function _before(AcceptanceTester $I)
     {
     }

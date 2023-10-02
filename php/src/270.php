@@ -5,6 +5,9 @@
     <title>270 - ATLETES</title>
 </head>
 <body>
-<?php include ("270a.php");?>
+<?php
+include ("atletes.php");
+include ("270a.php");
+?>
 </body>
 </html>
