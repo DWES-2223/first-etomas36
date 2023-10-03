@@ -22,6 +22,6 @@ $dates = array_column_ext($records,'data',-1);
 $natalicis = array_column_ext($records,'natalici',-1);
 
 $atletaMesJove = jove($dates,$natalicis);
-echo "<br>El atleta més Jove es: ".$atletaMesJove." Anys";
+echo "<br>El atleta més Jove té: ".$atletaMesJove." Anys";
 echo "<br><br>";
 include("270a.php");

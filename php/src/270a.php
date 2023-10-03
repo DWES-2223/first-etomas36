@@ -11,9 +11,9 @@
     <?php
     foreach ($records as $prova => $record) {?>
         <tr> <!-- CONTINGUT DE LA TALBA -->
-            <td><?php echo $prova ?></td>
+            <td><?=$prova ?></td>
             <?php foreach ($record as $item) {?>
-                <td><?php echo $item?></td>
+                <td><?=$item?></td>
                 <?php
             }
             ?>
