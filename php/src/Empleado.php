@@ -43,20 +43,35 @@ class Empleado extends Persona8
 
     }
 
-    public static function toHtml(Persona $p): string{                                              //ASKEJAR HELP
-        if($p instanceof Empleado){
-            
-            $html = "<p>".parent::getNombreStatico($p)."</p>";
-            $phones = self::getPhones($p);
-            $html = $html."<ul>";
-            foreach ($phones as $phone){
-                $html = $html."<li>$phone</li>";
-            }
-            $html = $html."</ul>";
-            return $html;
+    //307
+    public static function toHtml(Empleado $p): string{
+        $html = "<p>".parent::getNombreStatico($p)."</p>";
+        $phones = self::getPhones($p);
+        $html = $html."<ul>";
+        foreach ($phones as $phone){
+            $html = $html."<li>$phone</li>";
         }
+        $html = $html."</ul>";
+        return $html;
+
     }
 
+    //308
+    //public static function toHtml(Persona $p): string{                                              //ASKEJAR HELP
+    //    $html ="";
+    //    if($p instanceof Empleado){
+    //        $html = "<p>".parent::getNombreStatico($p)."</p>";
+    //        $phones = self::getPhones($p);
+    //        $html = $html."<ul>";
+    //        foreach ($phones as $phone){
+    //            $html = $html."<li>$phone</li>";
+    //        }
+    //        $html = $html."</ul>";
+    //    }
+    //    return $html;
+    //}
+
+    //309
     public function  __toString(): string {
 
         $html = "<p>".parent::__toString()."</p>";

@@ -81,7 +81,7 @@ class Persona
         return $this->edad > 65;
 
     }
-    
+
 
     public static function toHtml(Persona $p): string {
         $html = "<p>".self::getNombreStatico($p)."</p>";

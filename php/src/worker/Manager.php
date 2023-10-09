@@ -1,6 +1,6 @@
 <?php
 
-class Manager extends \Worker {
+class Manager extends \worker\Treballador {
 
     private $salari;
 

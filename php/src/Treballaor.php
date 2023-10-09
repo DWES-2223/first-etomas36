@@ -3,7 +3,7 @@
 /**
  *
  */
-class Treballador
+class Treballaor
 {
 
     private $dni;

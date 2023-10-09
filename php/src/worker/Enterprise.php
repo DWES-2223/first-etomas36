@@ -1,5 +1,6 @@
 <?php
 
+require_once 'Treballador.php';
 class Enterprise{
     public function __construct(
         private string $nom = "",
@@ -27,16 +28,24 @@ class Enterprise{
         $this->direccio = $direccio;
     }
 
-    public function addWorker(Worker $t){
+    public function addWorker(Treballador $t): void
+    {
         array_push($this->workers, $t);
     }
-
     public function listWorkersHtml() : string{
         $html = "";
         foreach ($this->workers as $worker) {
-            $html .= \Worker::toHtml($worker);
+            $html .=$worker->__toString();
         }
         return $html;
+    }
+    
+    public function getCosteNominas(): float{
+        $costTotal = 0;
+        foreach ($this->workers as $worker) {
+            $costTotal += $worker->calcularSou();
+        }
+        return $costTotal;
     }
 
 }

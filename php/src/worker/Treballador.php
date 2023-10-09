@@ -1,7 +1,7 @@
 <?php
 
-namespace worker;
-abstract class Worker extends Persona
+require 'Persona.php';
+abstract class Treballador extends Persona
 {
     private $telefonos;
 
@@ -71,7 +71,6 @@ abstract class Worker extends Persona
     //309
     public function __toString(): string
     {
-
         $html = "<p>" . parent::__toString() . "</p>";
         $html = $html . "<ul>";
         foreach ($this->telefonos as $phone) {

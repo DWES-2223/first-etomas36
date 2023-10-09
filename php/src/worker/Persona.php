@@ -1,10 +1,9 @@
 <?php
-
-abstract class Person
+define("LIMITE_EDAT",66);
+abstract class Persona
 {
 
     public static int $limite_edat = LIMITE_EDAT;
-
 
     public function __construct(
         private string $nom = "",
@@ -81,7 +80,7 @@ abstract class Person
     public function  __toString(): string {
         return "NOM: ".$this->nom." COGNOM: ".$this->cognom." EDAD: ".$this->edad;
     }
-    abstract public static function toHtml(Person $p): string;
+    abstract public static function toHtml(Persona $p): string;
 
 
 }
