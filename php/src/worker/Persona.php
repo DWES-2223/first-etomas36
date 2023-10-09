@@ -1,22 +1,16 @@
 <?php
 
-class Persona7
+abstract class Person
 {
-    private string $nom;
-    private string $cognom;
-    private int $edad;
 
-    /**
-     * @param $nom
-     * @param $cognom
-     * @param $edad
-     */
-    public function __construct(string $nom, string $cognom, int $edad = 25)
-    {
-        $this->nom = $nom;
-        $this->cognom = $cognom;
-        $this->edad = $edad;
-    }
+    public static int $limite_edat = LIMITE_EDAT;
+
+
+    public function __construct(
+        private string $nom = "",
+        private string $cognom="",
+        private int $edad = 25
+    ){ }
 
     /**
      * @return mixed
@@ -67,15 +61,27 @@ class Persona7
     }
 
     public function getNombreCompleto(): string{
-
-        return $this->nom.$this->cognom;
-
+        return $this->nom." ".$this->cognom;
     }
+    public static function getNombreStatico($emp): string
+    {
+        return $emp->nom." ".$emp->cognom;
+    }
+
+    public static function modificaLimite(int $limit){
+        self::$limite_edat = $limit;
+    }
+
     public function estaJubilado(): bool{
 
-        return $this->edad > 65;
+        return $this->edad >= self::$limite_edat;
 
     }
+
+    public function  __toString(): string {
+        return "NOM: ".$this->nom." COGNOM: ".$this->cognom." EDAD: ".$this->edad;
+    }
+    abstract public static function toHtml(Person $p): string;
 
 
 }
